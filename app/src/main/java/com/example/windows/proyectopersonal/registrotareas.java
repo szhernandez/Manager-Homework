@@ -135,7 +135,7 @@ public class registrotareas extends ActionBarActivity implements View.OnClickLis
                 descripcion.setText(fila.getString(2));
 
             } else {
-                Toast.makeText(this,"No existen tareas para el dia",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"No existen tareas para el dia selecionado",Toast.LENGTH_SHORT).show();
             }
             bd.close();
         }catch (Exception e){ Toast.makeText(this, "Error: " + e, Toast.LENGTH_SHORT).show();}
