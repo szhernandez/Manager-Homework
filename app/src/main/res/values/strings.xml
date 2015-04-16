@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Proyecto personal</string>
+
+    <string name="hello_world">Materias Actuales</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="title_activity_materias">Agregar Materias</string>
+
+    <string name="title_activity_principal">Mis Materias</string>
+    <string name="addmateria">Datos de nueva materia</string>
+
+    <string name="title_activity_registrotareas">Registro de tareas</string>
+    <string name="añadirtarea">Añadir tarea</string>
+    <string name="nombretarea">Nombre de la tarea</string>
+    <string name="fechaentrega">Fecha de entrega</string>
+    <string name="detalles">Detalles de la tarea</string>
+    <string name="guardartarea">Guardar tarea  </string>
+    <string name="modificartarea">Modificar tarea</string>
+    <string name="eliminartarea">Eliminar tarea</string>
+    <string name="buscartarea">Buscar tarea   </string>
+
+
+</resources>
