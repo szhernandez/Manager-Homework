@@ -61,7 +61,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnmateria:
-                Intent intent = new Intent(getBaseContext(), materias.class);
+                Intent intent = new Intent(getBaseContext(), registromaterias.class);
 
                 startActivity(intent);
                 break;

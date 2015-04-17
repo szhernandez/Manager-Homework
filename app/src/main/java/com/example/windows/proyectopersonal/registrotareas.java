@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ import java.util.Calendar;
 
 
 public class registrotareas extends ActionBarActivity implements View.OnClickListener {
-    TextView titulo, fecha,descripcion ;
+    EditText titulo, fecha,descripcion ;
     Button guardartarea;
     private int mYear, mMonth, mDay;
 
@@ -32,9 +33,9 @@ public class registrotareas extends ActionBarActivity implements View.OnClickLis
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setElevation(4);
 
-        titulo = (TextView) findViewById(R.id.ed_nombretarea);
-        fecha = (TextView) findViewById(R.id.ed_fecha);
-        descripcion = (TextView) findViewById(R.id.ed_descripcion);
+        titulo = (EditText) findViewById(R.id.ed_nombretarea);
+        fecha = (EditText) findViewById(R.id.ed_fecha);
+        descripcion = (EditText) findViewById(R.id.ed_descripcion);
         guardartarea= (Button) findViewById(R.id.btnguardar);
 
         fecha.setOnClickListener(this);
@@ -128,7 +129,7 @@ public class registrotareas extends ActionBarActivity implements View.OnClickLis
             SQLiteDatabase bd = admin.getWritableDatabase();
             String buscartitulo = titulo.getText().toString();
 
-            Cursor fila = bd.rawQuery("select titulo, fecha, descripcion from tareas where titulo=" + buscartitulo, null);
+            Cursor fila = bd.rawQuery("select titulo, fecha, descripcion from tareas where titulo='" + buscartitulo +"'", null);
             if (fila.moveToFirst()) {
                 titulo.setText(fila.getString(0));
                 fecha.setText(fila.getString(1));
@@ -146,7 +147,7 @@ public class registrotareas extends ActionBarActivity implements View.OnClickLis
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "tareas", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         String bdtitulo = titulo.getText().toString();
-        int cant = bd.delete("tareas","titulo=" + bdtitulo, null);
+        int cant = bd.delete("tareas","titulo='" + bdtitulo +"'", null);
         bd.close();
 
 
@@ -177,7 +178,7 @@ public class registrotareas extends ActionBarActivity implements View.OnClickLis
             registro.put("descripcion", bddescripcion);
 
 
-            int cant = bd.update("tareas", registro, "titulo=" + bdtitulo, null);
+            int cant = bd.update("tareas", registro, "titulo='" + bdtitulo+"'", null);
             bd.close();
 
             if (cant == 1) {

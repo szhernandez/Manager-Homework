@@ -15,14 +15,19 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     // Se crea la tabla
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table tareas (id_tarea INTEGER PRIMARY KEY AUTOINCREMENT, titulo text, fecha text , descripcion text) ");
-        db.execSQL("create table materias (id_materia text primary key unique auto_increment, Nombre text , Profesor text, ) ");
+
+        //db.execSQL("create table tareas (id_tarea INTEGER PRIMARY KEY AUTOINCREMENT, titulo text, fecha text, descripcion text) ");
+        db.execSQL("create table tareas (titulo text PRIMARY KEY , fecha text, descripcion text) ");
+       // db.execSQL("create table materias (id_materia INTEGER PRIMARY KEY AUTOINCREMENT, nombre text, profesor text) ");
     }
 
     // borrar la tabla y crear la nueva tabla
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("drop table if exists tareas");
-        db.execSQL("create table  tareas (titulo text primary key unique, fecha text , descripcion text) ");
+        db.execSQL("create table tareas (titulo text PRIMARY KEY , fecha text, descripcion text) ");
+        //db.execSQL("create table tareas (id_tarea INTEGER PRIMARY KEY AUTOINCREMENT, titulo text, fecha text, descripcion text) ");
+      //  db.execSQL("drop table if exists materias");
+     //   db.execSQL("create table materias (id_materia INTEGER PRIMARY KEY AUTOINCREMENT, nombre text, profesor text) ");
     }
 }

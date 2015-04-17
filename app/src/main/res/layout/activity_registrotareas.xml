@@ -67,7 +67,7 @@
         android:text="@string/guardartarea"
         android:onClick="alta"
         />
-    <!--
+
     <Button
         android:id="@+id/btnmodificar"
         android:layout_width="wrap_content"
@@ -92,7 +92,7 @@
         android:text="@string/buscartarea"
         android:onClick="consulta"
         />
-        -->
+    <!-- -->
 </LinearLayout>
 
 </ScrollView>

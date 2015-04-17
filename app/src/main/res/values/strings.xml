@@ -19,5 +19,13 @@
     <string name="eliminartarea">Eliminar tarea</string>
     <string name="buscartarea">Buscar tarea   </string>
 
+    <string name="title_activity_registromaterias">Registro de materias</string>
+    <string name="añadirmateria">Añadir Materia</string>
+    <string name="nombremateria">Nombre de la materia</string>
+    <string name="profesor">Nombre del profesor</string>
+    <string name="hentrada">Hora de entrada</string>
+    <string name="hsalida">Hora de salida</string>
+    <string name="dias">Dias de clases</string>
+
 
 </resources>
