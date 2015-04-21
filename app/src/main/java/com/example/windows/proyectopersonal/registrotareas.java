@@ -2,6 +2,7 @@ package com.example.windows.proyectopersonal;
 
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
@@ -20,7 +21,7 @@ import java.util.Calendar;
 
 
 public class registrotareas extends ActionBarActivity implements View.OnClickListener {
-    EditText titulo, fecha,descripcion ;
+    EditText titulo, fecha,descripcion, txtodo ;
     Button guardartarea;
     private int mYear, mMonth, mDay;
 
@@ -36,6 +37,7 @@ public class registrotareas extends ActionBarActivity implements View.OnClickLis
         titulo = (EditText) findViewById(R.id.ed_nombretarea);
         fecha = (EditText) findViewById(R.id.ed_fecha);
         descripcion = (EditText) findViewById(R.id.ed_descripcion);
+        txtodo= (EditText) findViewById(R.id.todo);
         guardartarea= (Button) findViewById(R.id.btnguardar);
 
         fecha.setOnClickListener(this);
@@ -50,6 +52,8 @@ public class registrotareas extends ActionBarActivity implements View.OnClickLis
         getMenuInflater().inflate(R.menu.menu_registrotareas, menu);
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu_main, menu);
+
+        getMenuInflater().inflate(R.menu.menu_registromaterias, menu);
         return true;
     }
 
@@ -61,17 +65,19 @@ public class registrotareas extends ActionBarActivity implements View.OnClickLis
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        switch (item.getItemId()) {
 
-        return super.onOptionsItemSelected(item);
+            default:
+            return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+
             case R.id.ed_fecha:
+                //Implementando DAta Picker
                 final Calendar c = Calendar.getInstance();
                 mYear = c.get(Calendar.YEAR);
                 mMonth = c.get(Calendar.MONTH);
@@ -84,7 +90,7 @@ public class registrotareas extends ActionBarActivity implements View.OnClickLis
                             @Override
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
-                                // Setear valor en editText
+                                // Asignar valor en editText
                                 fecha.setText(dayOfMonth + "-"
                                         + (monthOfYear + 1) + "-" + year);
                             }
@@ -128,16 +134,30 @@ public class registrotareas extends ActionBarActivity implements View.OnClickLis
             AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "tareas", null, 1);
             SQLiteDatabase bd = admin.getWritableDatabase();
             String buscartitulo = titulo.getText().toString();
+            String resultado = "";
 
-            Cursor fila = bd.rawQuery("select titulo, fecha, descripcion from tareas where titulo='" + buscartitulo +"'", null);
-            if (fila.moveToFirst()) {
+
+           // Cursor fila = bd.rawQuery("select titulo, fecha, descripcion from tareas where titulo='" + buscartitulo +"'", null);
+            Cursor fila = bd.rawQuery("select * from tareas", null);
+            int iidtarea = fila.getColumnIndex("id_tarea");
+            int ititulo = fila.getColumnIndex("titulo");
+            int ifecha = fila.getColumnIndex("fecha");
+            int idescripcion = fila.getColumnIndex("descripcion");
+           /* if (fila.moveToFirst()) {
                 titulo.setText(fila.getString(0));
                 fecha.setText(fila.getString(1));
                 descripcion.setText(fila.getString(2));
-
-            } else {
-                Toast.makeText(this,"No existen tareas para el dia selecionado",Toast.LENGTH_SHORT).show();
+                */
+            resultado = "   |+| Titulo |+| Fecha "+ "|+|"+ " Descripcion"+"\n";
+            for (fila.moveToFirst(); !fila.isAfterLast(); fila.moveToNext()) {
+                resultado = resultado + fila.getString(iidtarea) + "   |+|   " +
+                        fila.getString(ititulo) + "  |+|  " + fila.getString(ifecha) + "  |+|  " + fila.getString(idescripcion) + "\n";
             }
+            txtodo.setText(resultado);
+
+           // } else {
+            //    Toast.makeText(this,"No existen tareas para el dia selecionado",Toast.LENGTH_SHORT).show();
+            //}
             bd.close();
         }catch (Exception e){ Toast.makeText(this, "Error: " + e, Toast.LENGTH_SHORT).show();}
 
@@ -161,6 +181,7 @@ public class registrotareas extends ActionBarActivity implements View.OnClickLis
             Toast.makeText(this, "No existe la tarea",Toast.LENGTH_SHORT).show();
         }
     }
+
 
     public void modificacion (View v) {
         try {

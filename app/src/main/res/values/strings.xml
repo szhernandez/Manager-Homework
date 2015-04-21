@@ -27,5 +27,11 @@
     <string name="hsalida">Hora de salida</string>
     <string name="dias">Dias de clases</string>
 
+    <string name="title_activity_editartarea">editartarea</string>
+    <string name="idtarea">Id de la tarea</string>
+    <string name="title_activity_eliminartarea">eliminartarea</string>
+
+    <string name="title_activity_mostrartareas">mostrartareas</string>
+    <string name="vertodo">Ver Todo</string>
 
 </resources>

@@ -59,6 +59,7 @@
         android:id="@+id/ed_descripcion"
         android:drawableLeft="@android:drawable/ic_menu_edit" />
 
+
     <Button
         android:id="@+id/btnguardar"
         android:layout_width="wrap_content"
@@ -68,30 +69,9 @@
         android:onClick="alta"
         />
 
-    <Button
-        android:id="@+id/btnmodificar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/modificartarea"
-        android:onClick="modificacion"
-        />
-    <Button
-        android:id="@+id/btnborrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/eliminartarea"
-        android:onClick="baja"
-        />
-    <Button
-        android:id="@+id/btnbuscar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/buscartarea"
-        android:onClick="consulta"
-        />
+
+
+
     <!-- -->
 </LinearLayout>
 

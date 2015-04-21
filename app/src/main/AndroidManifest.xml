@@ -27,14 +27,42 @@
         <activity
             android:name=".registrotareas"
             android:label="@string/title_activity_registrotareas"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".mostrartareas" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".mostrartareas" />
         </activity>
         <activity
             android:name=".registromaterias"
-            android:label="@string/title_activity_registromaterias" >
+            android:label="@string/title_activity_registromaterias"
+            android:parentActivityName=".mostrartareas" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".mostrartareas" />
+        </activity>
+        <activity
+            android:name=".editartarea"
+            android:label="@string/title_activity_editartarea"
+            android:parentActivityName=".mostrartareas" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".mostrartareas" />
+        </activity>
+        <activity
+            android:name=".eliminartarea"
+            android:label="@string/title_activity_eliminartarea"
+            android:parentActivityName=".mostrartareas" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".mostrartareas" />
+        </activity>
+        <activity
+            android:name=".mostrartareas"
+            android:label="@string/title_activity_mostrartareas"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
     </application>
 

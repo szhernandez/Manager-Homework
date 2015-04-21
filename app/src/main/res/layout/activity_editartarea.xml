@@ -1,0 +1,111 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.windows.proyectopersonal.registrotareas"
+
+    >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView android:text="@string/añadirtarea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:weightSum="10"  >
+
+            <EditText
+                android:id="@+id/ed_id"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/idtarea"
+                android:drawableLeft="@android:drawable/ic_menu_add"
+                android:layout_weight="6"
+                android:inputType="number"
+                />
+            <Button
+                android:id="@+id/btnbuscar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/buscartarea"
+                android:onClick="consulta"
+                android:layout_weight="5"
+                />
+            </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/ed_nombretarea"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="@string/nombretarea"
+            android:drawableLeft="@android:drawable/ic_menu_agenda"
+            android:enabled="false"/>
+        <TextView android:text="@string/fechaentrega"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="18dp"
+            android:layout_marginTop="20dp"
+            android:enabled="false"
+            />
+
+        <EditText
+            android:id="@+id/ed_fecha"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="@string/fechaentrega"
+            android:drawableLeft="@android:drawable/ic_menu_today"
+            android:onClick="asignarfecha"
+            android:enabled="false"
+            />
+
+        <TextView android:text="@string/detalles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="18dp"
+            android:layout_marginTop="20dp"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/ed_descripcion"
+            android:drawableLeft="@android:drawable/ic_menu_edit"
+            android:enabled="false"/>
+
+
+
+
+        <Button
+            android:id="@+id/btnmodificar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/modificartarea"
+            android:onClick="modificacion"
+            />
+
+
+        <!-- -->
+    </LinearLayout>
+
+</ScrollView>

@@ -66,7 +66,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.btntareas:
-                Intent intent2 = new Intent(getBaseContext(), registrotareas.class);
+                Intent intent2 = new Intent(getBaseContext(), mostrartareas.class);
 
                 startActivity(intent2);
                 break;
