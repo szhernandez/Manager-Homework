@@ -33,5 +33,9 @@
 
     <string name="title_activity_mostrartareas">mostrartareas</string>
     <string name="vertodo">Ver Todo</string>
+    <string name="title_activity_registro">registro</string>
+    <string name="titulo">Titulo</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="id">Id:</string>
 
 </resources>

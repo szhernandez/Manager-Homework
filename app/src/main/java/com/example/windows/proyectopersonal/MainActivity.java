@@ -77,6 +77,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         }
     }
 
+public void ver(View v){
+    Intent intent = new Intent(this, registro.class);
+    startActivity(intent);
 
+}
 
 }

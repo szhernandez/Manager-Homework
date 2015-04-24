@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,10 +14,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.windows.proyectopersonal.adaptadores.tareasadaptador;
+import com.example.windows.proyectopersonal.modelos.modelotareas;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class mostrartareas extends ActionBarActivity {
     TextView titulo, fecha,descripcion, txtodo ;
     String Allconsulta;
+    private RecyclerView recycler;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager lManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +35,32 @@ public class mostrartareas extends ActionBarActivity {
 
 
 
-        txtodo= (TextView) findViewById(R.id.todo);
+      //  txtodo= (TextView) findViewById(R.id.todo);
+try {
+    //Creando el arreglo
+    List<modelotareas> items = new ArrayList<>();
+    //Conexion
+     AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "tareas", null, 1);
+    SQLiteDatabase bd = admin.getWritableDatabase();
+    Cursor fila = bd.rawQuery("select id_tarea, titulo, fecha, descripcion from tareas", null);
+
+    for (fila.moveToFirst(); !fila.isAfterLast(); fila.moveToNext()){
+       items.add(new modelotareas(fila.getString(0),fila.getString(1),fila.getString(2),fila.getString(3)));
+    }//EndFor
+
+    // Obtener el Recycler
+    recycler = (RecyclerView) findViewById(R.id.r_tareas);
+    recycler.setHasFixedSize(true);
+
+    // Usar un administrador para LinearLayout
+    lManager = new LinearLayoutManager(this);
+    recycler.setLayoutManager(lManager);
+
+    // Crear un nuevo adaptador
+    adapter = new tareasadaptador(items);
+    recycler.setAdapter(adapter);
+
+}catch (Exception e){}
 
     }
 

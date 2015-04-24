@@ -23,12 +23,12 @@ public class editartarea extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editartarea);
-        txtodo= (EditText) findViewById(R.id.todo);
+       // txtodo= (EditText) findViewById(R.id.todo);
 
         titulo = (EditText) findViewById(R.id.ed_nombretarea);
         fecha = (EditText) findViewById(R.id.ed_fecha);
         descripcion = (EditText) findViewById(R.id.ed_descripcion);
-        txtodo= (EditText) findViewById(R.id.todo);
+       // txtodo= (EditText) findViewById(R.id.todo);
         txtid= (EditText) findViewById(R.id.ed_id);
 
     }
