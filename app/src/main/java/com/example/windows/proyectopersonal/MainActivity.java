@@ -82,5 +82,10 @@ public void ver(View v){
     startActivity(intent);
 
 }
+    public void prueba(View v){
+        Intent intent = new Intent(this, registrotareas.class);
+        startActivity(intent);
+
+    }
 
 }

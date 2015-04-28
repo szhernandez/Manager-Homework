@@ -48,9 +48,24 @@
         fab:fab_colorNormal="@color/Accent"
         fab:fab_colorPressed="@color/Primary"
 
+        fab:fab_icon="@drawable/fab_bg_mini"
+
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/abc_ic_clear_mtrl_alpha" />
+
+    <com.getbase.floatingactionbutton.AddFloatingActionButton
+        android:id="@+id/btnregistrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:baselineAlignBottom="false"
+        fab:fab_colorNormal="@color/Accent"
+        fab:fab_colorPressed="@color/Primary"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/btntareas"
+        android:layout_toStartOf="@+id/btntareas"
+        android:onClick="prueba"/>
 
 
 </RelativeLayout>

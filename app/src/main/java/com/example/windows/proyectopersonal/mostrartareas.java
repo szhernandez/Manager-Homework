@@ -43,22 +43,25 @@ try {
      AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "tareas", null, 1);
     SQLiteDatabase bd = admin.getWritableDatabase();
     Cursor fila = bd.rawQuery("select id_tarea, titulo, fecha, descripcion from tareas", null);
+    //validando que existan datos
+    if (fila.moveToFirst()) {
 
-    for (fila.moveToFirst(); !fila.isAfterLast(); fila.moveToNext()){
-       items.add(new modelotareas(fila.getString(0),fila.getString(1),fila.getString(2),fila.getString(3)));
-    }//EndFor
+        for (fila.moveToFirst(); !fila.isAfterLast(); fila.moveToNext()) {
+            items.add(new modelotareas(fila.getString(0), fila.getString(1), fila.getString(2), fila.getString(3)));
+        }//EndFor
 
-    // Obtener el Recycler
-    recycler = (RecyclerView) findViewById(R.id.r_tareas);
-    recycler.setHasFixedSize(true);
+        // Obtener el Recycler
+        recycler = (RecyclerView) findViewById(R.id.r_tareas);
+        recycler.setHasFixedSize(true);
 
-    // Usar un administrador para LinearLayout
-    lManager = new LinearLayoutManager(this);
-    recycler.setLayoutManager(lManager);
+        // Usar un administrador para LinearLayout
+        lManager = new LinearLayoutManager(this);
+        recycler.setLayoutManager(lManager);
 
-    // Crear un nuevo adaptador
-    adapter = new tareasadaptador(items);
-    recycler.setAdapter(adapter);
+        // Crear un nuevo adaptador
+        adapter = new tareasadaptador(items);
+        recycler.setAdapter(adapter);
+    }else{  Toast.makeText(this,"Aun no existen tareas, registre una",Toast.LENGTH_SHORT).show();}
 
 }catch (Exception e){}
 
