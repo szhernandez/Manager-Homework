@@ -61,7 +61,7 @@ EditText Nmateria, Nprofesor;
             String bdprofesor = Nprofesor.getText().toString();
 
             ContentValues registro = new ContentValues();
-            registro.put("id_materia","");
+
             registro.put("nombre", bdnombre);
             registro.put("profesor", bdprofesor);
 

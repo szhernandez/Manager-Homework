@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Librerias/Librerias.iml" filepath="$PROJECT_DIR$/Librerias/Librerias.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Proyectopersonal.iml" filepath="$PROJECT_DIR$/Proyectopersonal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Manager-Homework.iml" filepath="$PROJECT_DIR$/Manager-Homework.iml" />
       <module fileurl="file://$PROJECT_DIR$/Librerias/android-floating-action-button-master/android-floating-action-button-master.iml" filepath="$PROJECT_DIR$/Librerias/android-floating-action-button-master/android-floating-action-button-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

@@ -68,6 +68,14 @@
             android:name=".registro"
             android:label="@string/title_activity_registro" >
         </activity>
+        <activity
+            android:name=".editarmateria"
+            android:label="@string/title_activity_editarmateria" >
+        </activity>
+        <activity
+            android:name=".eliminarmateria"
+            android:label="@string/title_activity_eliminarmateria" >
+        </activity>
     </application>
 
 </manifest>

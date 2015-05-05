@@ -1,0 +1,88 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.windows.proyectopersonal.registrotareas"
+
+    >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView android:text="@string/modificarmateria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:weightSum="10"  >
+
+            <EditText
+                android:id="@+id/ed_idmateria"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/idmateria"
+                android:drawableLeft="@android:drawable/ic_menu_add"
+                android:layout_weight="6"
+                android:inputType="number"
+                />
+            <Button
+                android:id="@+id/btnbuscar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/buscarmateria"
+                android:onClick="buscarmateria"
+                android:layout_weight="5"
+                />
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/ed_nombremateria"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="@string/nombremateria"
+            android:drawableLeft="@android:drawable/ic_menu_agenda"
+            android:enabled="false"/>
+
+
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nombreprofesor"
+            android:ems="10"
+            android:id="@+id/ed_profesor"
+            android:drawableLeft="@android:drawable/ic_menu_edit"
+            android:enabled="false"/>
+
+
+
+
+        <Button
+            android:id="@+id/btnmodificar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/modificarmateria"
+            android:onClick="modificarmateria"
+            />
+
+
+        <!-- -->
+    </LinearLayout>
+
+</ScrollView>
+

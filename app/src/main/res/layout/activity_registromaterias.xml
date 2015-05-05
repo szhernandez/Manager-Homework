@@ -23,7 +23,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:hint="@string/nombretarea"
+            android:hint="@string/nombremateria"
             android:drawableLeft="@android:drawable/ic_menu_agenda" />
         <EditText
             android:id="@+id/ed_maestro"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/modificartarea"
-            android:onClick="consultamate"
+            android:onClick=""
             />
         <!--
         <Button

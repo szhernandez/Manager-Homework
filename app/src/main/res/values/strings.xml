@@ -38,4 +38,12 @@
     <string name="descripcion">Descripcion</string>
     <string name="id">Id:</string>
 
+    <string name="title_activity_editarmateria">editarmateria</string>
+    <string name="idmateria">Id materia</string>
+    <string name="nombreprofesor">Nombre del profesor</string>
+    <string name="modificarmateria">Modificar materia</string>
+    <string name="buscarmateria">Buscar Materia</string>
+    <string name="title_activity_eliminarmateria">eliminarmateria</string>
+    <string name="eliminarmateria">Eliminar materia</string>
+
 </resources>

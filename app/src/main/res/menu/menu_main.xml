@@ -1,8 +1,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        android:orderInCategory="100"
-        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/editmateria"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="Editar"
+        android:orderInCategory="2"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/deletemateria"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="Eliminar"
+        android:orderInCategory="3"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/showtareas"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Show"
+        android:orderInCategory="3"
+        app:showAsAction="ifRoom" />
 </menu>
