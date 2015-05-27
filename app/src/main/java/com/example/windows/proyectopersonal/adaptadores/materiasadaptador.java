@@ -1,13 +1,20 @@
 package com.example.windows.proyectopersonal.adaptadores;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.windows.proyectopersonal.MainActivity;
 import com.example.windows.proyectopersonal.R;
+import com.example.windows.proyectopersonal.editartarea;
 import com.example.windows.proyectopersonal.modelos.modelomaterias;
+import com.example.windows.proyectopersonal.mostrartareas;
+import  com.example.windows.proyectopersonal.metodos;
 
 import java.util.List;
 
@@ -17,7 +24,8 @@ import java.util.List;
 public class materiasadaptador extends RecyclerView.Adapter<materiasadaptador.materiasViewHolder> {
 
     private List<modelomaterias> items;
-    public static class materiasViewHolder extends RecyclerView.ViewHolder {
+    public static class materiasViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        private static final String TAG = "CustomAdapter";
         public TextView id_materia;
         public TextView nombre;
         public TextView profesor;
@@ -25,9 +33,23 @@ public class materiasadaptador extends RecyclerView.Adapter<materiasadaptador.ma
 
         public materiasViewHolder(View v) {
             super(v);
+            // Define click listener for the ViewHolder's View.
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+
+                }
+            });
             id_materia = (TextView) v.findViewById(R.id.cm_idmateria);
             nombre = (TextView) v.findViewById(R.id.cm_nombre);
             profesor = (TextView) v.findViewById(R.id.cm_profesor);
+
+        }
+
+        @Override
+        public void onClick(View view) {
 
         }
     }
@@ -54,6 +76,9 @@ public class materiasadaptador extends RecyclerView.Adapter<materiasadaptador.ma
             viewHolder.profesor.setText("Profesor: "+items.get(i).getProfesor());
             //String.valueOF solo usado para convertir numeros a textos
 
+
+
         }
+
 
 }

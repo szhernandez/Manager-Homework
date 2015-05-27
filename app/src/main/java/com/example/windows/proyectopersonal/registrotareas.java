@@ -51,9 +51,9 @@ public class registrotareas extends ActionBarActivity implements View.OnClickLis
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_registrotareas, menu);
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_main, menu);
+        menuInflater.inflate(R.menu.menu_registrotareas, menu);
 
-        getMenuInflater().inflate(R.menu.menu_registromaterias, menu);
+
         return true;
     }
 

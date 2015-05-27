@@ -170,4 +170,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         }catch (Exception e){ Toast.makeText(this, "Error: " + e, Toast.LENGTH_SHORT).show();}
 
     }
+
+    public void abrir(){
+        Intent intent3 = new Intent(getBaseContext(), mostrartareas.class);
+        startActivity(intent3);
+    }
 }

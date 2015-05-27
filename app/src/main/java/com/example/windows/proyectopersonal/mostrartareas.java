@@ -98,11 +98,7 @@ try {
 
                 startActivity(intent2);
                 return true;
-            case R.id.add:
-                Intent intent3 = new Intent(getBaseContext(), registrotareas.class);
 
-                startActivity(intent3);
-                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -133,5 +129,9 @@ try {
             bd.close();
         }catch (Exception e){ Toast.makeText(this, "Error: " + e, Toast.LENGTH_SHORT).show();}
 
+    }
+    public void nuevatareita(View v){
+        Intent intent = new Intent(this, registrotareas.class);
+        startActivity(intent);
     }
 }

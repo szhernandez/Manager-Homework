@@ -1,49 +1,50 @@
 <resources>
-    <string name="app_name">Proyecto personal</string>
+    <string name="app_name">Personal Proyect</string>
 
-    <string name="hello_world">Materias Actuales</string>
+    <string name="hello_world">My school classes</string>
     <string name="action_settings">Settings</string>
 
-    <string name="title_activity_materias">Agregar Materias</string>
+    <string name="title_activity_materias">Add class</string>
 
-    <string name="title_activity_principal">Mis Materias</string>
-    <string name="addmateria">Datos de nueva materia</string>
+    <string name="title_activity_principal">My school classes</string>
+    <string name="addmateria">New class data</string>
 
-    <string name="title_activity_registrotareas">Registro de tareas</string>
-    <string name="añadirtarea">Añadir tarea</string>
-    <string name="nombretarea">Nombre de la tarea</string>
-    <string name="fechaentrega">Fecha de entrega</string>
-    <string name="detalles">Detalles de la tarea</string>
-    <string name="guardartarea">Guardar tarea  </string>
-    <string name="modificartarea">Modificar tarea</string>
-    <string name="eliminartarea">Eliminar tarea</string>
-    <string name="buscartarea">Buscar tarea   </string>
+    <string name="title_activity_registrotareas">Registration homework</string>
+    <string name="añadirtarea">Add homework</string>
+    <string name="nombretarea">Name of homework</string>
+    <string name="fechaentrega">Date of presentation</string>
+    <string name="detalles">Details of homework</string>
+    <string name="guardartarea">Save homework  </string>
+    <string name="modificartarea">modify homework</string>
+    <string name="eliminartarea">Delete homework</string>
+    <string name="buscartarea">Search homework</string>
 
-    <string name="title_activity_registromaterias">Registro de materias</string>
-    <string name="añadirmateria">Añadir Materia</string>
-    <string name="nombremateria">Nombre de la materia</string>
-    <string name="profesor">Nombre del profesor</string>
-    <string name="hentrada">Hora de entrada</string>
+    <string name="title_activity_registromaterias">Registration school class</string>
+    <string name="añadirmateria">Add class</string>
+    <string name="nombremateria">Name of class</string>
+    <string name="profesor">Name of teacher</string>
+    <string name="hentrada">Time input</string>
     <string name="hsalida">Hora de salida</string>
     <string name="dias">Dias de clases</string>
 
-    <string name="title_activity_editartarea">editartarea</string>
-    <string name="idtarea">Id de la tarea</string>
-    <string name="title_activity_eliminartarea">eliminartarea</string>
+    <string name="title_activity_editartarea">Task Edit </string>
+    <string name="idtarea">Homework Id</string>
+    <string name="title_activity_eliminartarea">Delete homework</string>
 
-    <string name="title_activity_mostrartareas">mostrartareas</string>
-    <string name="vertodo">Ver Todo</string>
-    <string name="title_activity_registro">registro</string>
-    <string name="titulo">Titulo</string>
-    <string name="descripcion">Descripcion</string>
+    <string name="title_activity_mostrartareas">Show homework</string>
+    <string name="vertodo">Show all</string>
+    <string name="title_activity_registro">Registration</string>
+    <string name="titulo">Title</string>
+    <string name="descripcion">Description</string>
     <string name="id">Id:</string>
 
-    <string name="title_activity_editarmateria">editarmateria</string>
-    <string name="idmateria">Id materia</string>
-    <string name="nombreprofesor">Nombre del profesor</string>
-    <string name="modificarmateria">Modificar materia</string>
-    <string name="buscarmateria">Buscar Materia</string>
-    <string name="title_activity_eliminarmateria">eliminarmateria</string>
-    <string name="eliminarmateria">Eliminar materia</string>
+    <string name="title_activity_editarmateria">Edit school class</string>
+    <string name="idmateria">School class Id </string>
+    <string name="nombreprofesor">Name of teacher </string>
+    <string name="modificarmateria">Edit school class </string>
+    <string name="buscarmateria">Search school class</string>
+    <string name="title_activity_eliminarmateria">Delete school class</string>
+    <string name="eliminarmateria">Delete school class</string>
+    <string name="guardarmateria">Save</string>
 
 </resources>
