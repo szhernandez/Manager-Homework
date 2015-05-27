@@ -3,6 +3,6 @@
     <color name="Primary" >#F44336</color>
     <color name="PrimaryDark" >#C62828</color>
     <color name="Accent" >#2196F3</color>
-    <color name="WindowBackground" >#FFEBEE</color>
+    <color name="WindowBackground" >#ffebee</color>
     <color name="navigatonBar">#F44336</color>
 </resources>

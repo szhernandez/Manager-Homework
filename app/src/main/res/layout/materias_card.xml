@@ -11,6 +11,7 @@
     android:layout_marginRight="5dp"
     android:layout_marginLeft="5dp"
 
+
    >
 
 
@@ -21,47 +22,38 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/c_id"
+            android:id="@+id/cm_idmateria"
             android:text="@string/id"
             android:textSize="20dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
         <TextView
+            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/c_titulo"
-            android:text="@string/titulo"
+            android:id="@+id/cm_nombre"
+            android:text="@string/nombremateria"
             android:textSize="20dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
             android:textColor="#000000"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/c_fecha"
-            android:text="@string/fechaentrega"
-            android:textSize="16dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/c_descripcion"
-            android:text="@string/descripcion"
+            android:id="@+id/cm_profesor"
+            android:text="@string/nombreprofesor"
             android:textSize="16dp"
             android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/imageView"
-            android:layout_toStartOf="@+id/imageView" />
+            android:layout_centerHorizontal="true" />
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@android:drawable/ic_menu_edit"
             android:id="@+id/imageView"
-            android:layout_alignTop="@+id/linea"
+            android:layout_alignBottom="@+id/cm_profesor"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
         <ImageView
@@ -69,7 +61,7 @@
             android:layout_height="30dp"
             android:src="@android:drawable/ic_menu_delete"
             android:id="@+id/imageView2"
-            android:layout_below="@+id/c_descripcion"
+            android:layout_alignParentBottom="true"
             android:layout_alignLeft="@+id/linea2"
             android:layout_alignStart="@+id/linea2" />
 
@@ -80,16 +72,7 @@
             android:background="#ffd5d5d5"
             android:id="@+id/linea"
 
-            android:layout_below="@+id/c_id"
-            android:layout_alignRight="@+id/imageView"
-            android:layout_alignEnd="@+id/imageView" />
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:background="#ffd5d5d5"
-            android:id="@+id/linea3"
-
-            android:layout_above="@+id/c_fecha"
+            android:layout_below="@+id/cm_nombre"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
         <View

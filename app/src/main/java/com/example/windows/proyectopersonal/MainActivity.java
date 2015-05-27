@@ -8,20 +8,31 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.windows.proyectopersonal.adaptadores.materiasadaptador;
+import com.example.windows.proyectopersonal.modelos.modelomaterias;
+
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener{
     com.getbase.floatingactionbutton.AddFloatingActionButton boton, botontareas;
     TextView txttodo;
+    private RecyclerView recycler;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager lManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +46,42 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         actionBar.setElevation(4);
         boton.setOnClickListener(this);
 
+        //Creando metodo para llenar arreglo de las materias
+        try {
+            //Creando el arreglo
+            List<modelomaterias> items = new ArrayList<>();
+            //Conexion
+            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "materias", null, 1);
+            SQLiteDatabase bd = admin.getWritableDatabase();
+            Cursor fila = bd.rawQuery("select * from materias", null);
+            //validando que existan datos
+            if (fila.moveToFirst()) {
+
+                for (fila.moveToFirst(); !fila.isAfterLast(); fila.moveToNext()) {
+                    items.add(new modelomaterias(fila.getString(0), fila.getString(1), fila.getString(2)));
+                }//EndFor
+
+
+            }else{  Toast.makeText(this,"Aun no existen materias, registre una",Toast.LENGTH_SHORT).show();}
+
+            // Obtener el Recycler
+            recycler = (RecyclerView) findViewById(R.id.r_materias);
+            recycler.setHasFixedSize(true);
+
+            // Usar un administrador para LinearLayout
+            lManager = new LinearLayoutManager(this);
+            recycler.setLayoutManager(lManager);
+
+            // Crear un nuevo adaptador
+            adapter = new materiasadaptador(items);
+            recycler.setAdapter(adapter);
+
+        }catch (Exception e){}
+
+        //Probando el codigo para onClicListener
+
+
+
     }
 
 
@@ -43,8 +90,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         //agrego para crear el action bar
-       // MenuInflater menuInflater = getMenuInflater();
-       // menuInflater.inflate(R.menu.menu_main, menu);
+        // MenuInflater menuInflater = getMenuInflater();
+        // menuInflater.inflate(R.menu.menu_main, menu);
         return true;
     }
 

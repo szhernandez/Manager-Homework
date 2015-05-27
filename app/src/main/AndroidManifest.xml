@@ -16,14 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".materias"
-            android:label="@string/title_activity_materias" >
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
+
         <activity
             android:name=".registrotareas"
             android:label="@string/title_activity_registrotareas"
@@ -35,10 +28,10 @@
         <activity
             android:name=".registromaterias"
             android:label="@string/title_activity_registromaterias"
-            android:parentActivityName=".mostrartareas" >
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".mostrartareas" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".editartarea"
@@ -64,10 +57,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity
-            android:name=".registro"
-            android:label="@string/title_activity_registro" >
-        </activity>
+
         <activity
             android:name=".editarmateria"
             android:label="@string/title_activity_editarmateria" >
