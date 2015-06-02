@@ -21,7 +21,7 @@ import java.util.Calendar;
 
 
 public class registrotareas extends ActionBarActivity implements View.OnClickListener {
-    EditText titulo, fecha,descripcion, txtodo ;
+    EditText titulo, fecha, descripcion, txtodo;
     Button guardartarea;
     private int mYear, mMonth, mDay;
 
@@ -31,18 +31,13 @@ public class registrotareas extends ActionBarActivity implements View.OnClickLis
         setContentView(R.layout.activity_registrotareas);
         //agrego para crear el action bar
         //Mostrar barra para regresar de actividad
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setElevation(4);
-
+        //android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         titulo = (EditText) findViewById(R.id.ed_nombretarea);
         fecha = (EditText) findViewById(R.id.ed_fecha);
         descripcion = (EditText) findViewById(R.id.ed_descripcion);
-      //  txtodo= (EditText) findViewById(R.id.todo);
-        guardartarea= (Button) findViewById(R.id.btnguardar);
-
+        //  txtodo= (EditText) findViewById(R.id.todo);
+        guardartarea = (Button) findViewById(R.id.btnguardar);
         fecha.setOnClickListener(this);
-
-
     }
 
 
@@ -50,10 +45,8 @@ public class registrotareas extends ActionBarActivity implements View.OnClickLis
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_registrotareas, menu);
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_registrotareas, menu);
-
-
+       // MenuInflater menuInflater = getMenuInflater();
+        //menuInflater.inflate(R.menu.menu_registrotareas, menu);
         return true;
     }
 
@@ -63,26 +56,22 @@ public class registrotareas extends ActionBarActivity implements View.OnClickLis
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         switch (item.getItemId()) {
-
             default:
-            return super.onOptionsItemSelected(item);
+                return super.onOptionsItemSelected(item);
         }
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
             case R.id.ed_fecha:
                 //Implementando DAta Picker
                 final Calendar c = Calendar.getInstance();
                 mYear = c.get(Calendar.YEAR);
                 mMonth = c.get(Calendar.MONTH);
                 mDay = c.get(Calendar.DAY_OF_MONTH);
-
                 // Lanzar Date Picker Dialog
                 DatePickerDialog dpd = new DatePickerDialog(this,
                         new DatePickerDialog.OnDateSetListener() {
@@ -96,37 +85,34 @@ public class registrotareas extends ActionBarActivity implements View.OnClickLis
                             }
                         }, mYear, mMonth, mDay);
                 dpd.show();
-            break;
+                break;
         }
-     }
-
-    public void asignarfecha(View v){
-
-
     }
 
-    public void alta (View v) {
+    public void alta(View v) {
+        //Obteniendo datos enviados de la actividad mostrar tarea
+        Bundle bundle = getIntent().getExtras();
+        String bolsita = bundle.getString("id_materia");
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "tareas", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
-
+        //Obteniendo datos de los EditTect y asignandolos a las variables
         String bdtitulo = titulo.getText().toString();
         String bdfecha = fecha.getText().toString();
         String bddescripcion = descripcion.getText().toString();
         ContentValues registro = new ContentValues();
-
+        //agregando los datos de la 4 variables a "registro"
         registro.put("titulo", bdtitulo);
         registro.put("fecha", bdfecha);
         registro.put("descripcion", bddescripcion);
-
+        registro.put("id_materia", bolsita);
+        //Insertando datos en la base de datos
         bd.insert("tareas", null, registro);
         bd.close();
-
+        //Limpiando EditText
         titulo.setText("");
         fecha.setText("");
         descripcion.setText("");
-
         Toast.makeText(this, "Se agrego una nueva tarea", Toast.LENGTH_SHORT).show();
-
     }
 
     public void consulta(View v) {
@@ -135,88 +121,74 @@ public class registrotareas extends ActionBarActivity implements View.OnClickLis
             SQLiteDatabase bd = admin.getWritableDatabase();
             String buscartitulo = titulo.getText().toString();
             String resultado = "";
-
-
-           // Cursor fila = bd.rawQuery("select titulo, fecha, descripcion from tareas where titulo='" + buscartitulo +"'", null);
+           //Consultando todos los datos de la tabla tareas
             Cursor fila = bd.rawQuery("select * from tareas", null);
             int iidtarea = fila.getColumnIndex("id_tarea");
             int ititulo = fila.getColumnIndex("titulo");
             int ifecha = fila.getColumnIndex("fecha");
             int idescripcion = fila.getColumnIndex("descripcion");
-           /* if (fila.moveToFirst()) {
-                titulo.setText(fila.getString(0));
-                fecha.setText(fila.getString(1));
-                descripcion.setText(fila.getString(2));
-                */
-            resultado = "   |+| Titulo |+| Fecha "+ "|+|"+ " Descripcion"+"\n";
+            resultado = "   |+| Titulo |+| Fecha " + "|+|" + " Descripcion" + "\n";
             for (fila.moveToFirst(); !fila.isAfterLast(); fila.moveToNext()) {
                 resultado = resultado + fila.getString(iidtarea) + "   |+|   " +
                         fila.getString(ititulo) + "  |+|  " + fila.getString(ifecha) + "  |+|  " + fila.getString(idescripcion) + "\n";
             }
             txtodo.setText(resultado);
-
-           // } else {
+            // } else {
             //    Toast.makeText(this,"No existen tareas para el dia selecionado",Toast.LENGTH_SHORT).show();
             //}
             bd.close();
-        }catch (Exception e){ Toast.makeText(this, "Error: " + e, Toast.LENGTH_SHORT).show();}
+        } catch (Exception e) {
+            Toast.makeText(this, "Error: " + e, Toast.LENGTH_SHORT).show();
+        }
 
     }
-
+    //Metodo para eliminar un registro en la tabla tareas
     public void baja(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "tareas", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         String bdtitulo = titulo.getText().toString();
-        int cant = bd.delete("tareas","titulo='" + bdtitulo +"'", null);
+        int cant = bd.delete("tareas", "titulo='" + bdtitulo + "'", null);
         bd.close();
-
-
+        //Limpiando EditText
         titulo.setText("");
         fecha.setText("");
         descripcion.setText("");
-
         if (cant == 1) {
-            Toast.makeText(this, "Se borró la tarea",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Se borró la tarea", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "No existe la tarea",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No existe la tarea", Toast.LENGTH_SHORT).show();
         }
     }
-
-
-    public void modificacion (View v) {
+    //Metodo para actializar datos de los registros
+    public void modificacion(View v) {
         try {
             AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "tareas", null, 1);
             SQLiteDatabase bd = admin.getWritableDatabase();
-
+            //Obteniendo datos de los EditTex y asignandolos a las variables
             String bdtitulo = titulo.getText().toString();
             String bdfecha = fecha.getText().toString();
             String bddescripcion = descripcion.getText().toString();
-
             ContentValues registro = new ContentValues();
-
+        //Agregando variable a "registro"
             registro.put("titulo", bdtitulo);
             registro.put("fecha", bdfecha);
             registro.put("descripcion", bddescripcion);
-
-
-            int cant = bd.update("tareas", registro, "titulo='" + bdtitulo+"'", null);
+            //Actualizando registro
+            int cant = bd.update("tareas", registro, "titulo='" + bdtitulo + "'", null);
             bd.close();
-
             if (cant == 1) {
-                Toast.makeText(this, "Se modificaron los datos",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Se modificaron los datos", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "No existe la tarea",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "No existe la tarea", Toast.LENGTH_SHORT).show();
             }
-        }catch (Exception ex){Toast.makeText(this, "Error: " + ex, Toast.LENGTH_SHORT).show();}
-
+        } catch (Exception ex) {
+            Toast.makeText(this, "Error: " + ex, Toast.LENGTH_SHORT).show();
+        }
     }
 
-    public void limpia (View v){
-
+    public void limpia(View v) {
         titulo.setText("");
         fecha.setText("");
         descripcion.setText("");
     }
-
-
 }

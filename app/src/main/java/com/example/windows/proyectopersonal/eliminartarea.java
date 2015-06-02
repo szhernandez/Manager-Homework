@@ -18,7 +18,6 @@ public class eliminartarea extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eliminartarea);
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-
         txtid= (EditText) findViewById(R.id.ed_id);
 
     }
@@ -46,16 +45,17 @@ public class eliminartarea extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
     public void baja(View v) {
+
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "tareas", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         String buscar = txtid.getText().toString();
-
+        //Eliminando registro de base de datos
         int cant = bd.delete("tareas","id_tarea='" + buscar +"'", null);
         bd.close();
 
-
+        //Limpiando EditText
         txtid.setText("");
-
+        //Comprobando si se borro la tarea
         if (cant == 1) {
             Toast.makeText(this, "Se borró la tarea", Toast.LENGTH_SHORT).show();
         } else {

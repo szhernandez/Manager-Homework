@@ -1,16 +1,21 @@
 package com.example.windows.proyectopersonal;
 
+import android.annotation.TargetApi;
+import android.app.ActivityOptions;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.ListActivity;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -27,42 +32,47 @@ import java.util.Calendar;
 import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener{
+ public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+     //Declarando boton flotante importado
     com.getbase.floatingactionbutton.AddFloatingActionButton boton, botontareas;
+    private static final String TAG = "MAinActivity";
     TextView txttodo;
     private RecyclerView recycler;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager lManager;
+    public String valor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        boton = (com.getbase.floatingactionbutton.AddFloatingActionButton) findViewById(R.id.btnmateria);
-     //  botontareas = (com.getbase.floatingactionbutton.AddFloatingActionButton) findViewById(R.id.btntareas);
-        txttodo = (TextView) findViewById(R.id.todomat);
+
         //Mostrar barra para regresar de actividad
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setElevation(4);
-        boton.setOnClickListener(this);
 
-        //Creando metodo para llenar arreglo de las materias
+
+        //Codigo para llenar arreglo con las materias actuales en la BD
         try {
             //Creando el arreglo
             List<modelomaterias> items = new ArrayList<>();
             //Conexion
             AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "materias", null, 1);
             SQLiteDatabase bd = admin.getWritableDatabase();
+            //Consulta a BD
             Cursor fila = bd.rawQuery("select * from materias", null);
             //validando que existan datos
             if (fila.moveToFirst()) {
-
+            //--Mover cursor a primer registro--Desplazar fila por fila
                 for (fila.moveToFirst(); !fila.isAfterLast(); fila.moveToNext()) {
                     items.add(new modelomaterias(fila.getString(0), fila.getString(1), fila.getString(2)));
                 }//EndFor
 
 
-            }else{  Toast.makeText(this,"Aun no existen materias, registre una",Toast.LENGTH_SHORT).show();}
+            } else {
+                //Mensaje en caso de que no existas materias
+                Toast.makeText(this, "Aun no existen materias, registre una", Toast.LENGTH_SHORT).show();
+            }
 
             // Obtener el Recycler
             recycler = (RecyclerView) findViewById(R.id.r_materias);
@@ -72,13 +82,15 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             lManager = new LinearLayoutManager(this);
             recycler.setLayoutManager(lManager);
 
+
             // Crear un nuevo adaptador
             adapter = new materiasadaptador(items);
             recycler.setAdapter(adapter);
 
-        }catch (Exception e){}
 
-        //Probando el codigo para onClicListener
+        } catch (Exception e) {
+        }
+
 
 
 
@@ -104,6 +116,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         //noinspection SimplifiableIfStatement
         switch (item.getItemId()) {
+            //Case correspondientes a las acciones del menu
             case R.id.editmateria:
                 Intent intent = new Intent(getBaseContext(), editarmateria.class);
 
@@ -130,49 +143,19 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
-            case R.id.btnregistrar:
-
+/*
+            case R.id.btnmateria:
+                Toast.makeText(this, "Valor " + valor, Toast.LENGTH_SHORT).show();
                 break;
 
-
+*/
         }
     }
 
 
-    public void nuevamateria(View v){
+        //Metodo para registrar una nueva materia
+    public void nuevamateria(View v) {
         Intent intent = new Intent(this, registromaterias.class);
         startActivity(intent);
     }
-    public void consultamaterias(View v) {
-        try {
-            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "materias", null, 1);
-            SQLiteDatabase bd = admin.getWritableDatabase();
-
-            String resultado = "";
-
-            Cursor fila = bd.rawQuery("select * from materias", null);
-            int iidtarea = fila.getColumnIndex("id_materia");
-            int ititulo = fila.getColumnIndex("nombre");
-            int ifecha = fila.getColumnIndex("profesor");
-
-
-            resultado = "   |+| Nombre |+| Profesor "+ "\n";
-            for (fila.moveToFirst(); !fila.isAfterLast(); fila.moveToNext()) {
-                resultado = resultado + fila.getString(iidtarea) + "   |+|   " +
-                        fila.getString(ititulo) + "  |+|  " + fila.getString(ifecha) + "  |+|  " +
-                         "\n";
-            }
-            txttodo.setText(resultado);
-
-
-            bd.close();
-        }catch (Exception e){ Toast.makeText(this, "Error: " + e, Toast.LENGTH_SHORT).show();}
-
-    }
-
-    public void abrir(){
-        Intent intent3 = new Intent(getBaseContext(), mostrartareas.class);
-        startActivity(intent3);
-    }
-}
+ }

@@ -19,9 +19,9 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL("create table materias (id_materia INTEGER PRIMARY KEY AUTOINCREMENT, nombre text, profesor text) ");
         //db.execSQL("insert into materias ('Nombre de la materia', 'Nombre del profesor') ");
         db.execSQL("create table tareas (id_tarea INTEGER PRIMARY KEY AUTOINCREMENT, titulo text, fecha text, descripcion text, id_materia INTEGER, FOREIGN KEY(id_materia) REFERENCES materias(id_materia)) ");
-       // db.execSQL("insert into tareas ('Aqui va el titulo', '01-1-2015', 'Breve descripcion de la tarea') ");
-       // db.execSQL("create table tareas (titulo text PRIMARY KEY , fecha text, descripcion text) ");
-      //
+        // db.execSQL("insert into tareas ('Aqui va el titulo', '01-1-2015', 'Breve descripcion de la tarea') ");
+        // db.execSQL("create table tareas (titulo text PRIMARY KEY , fecha text, descripcion text) ");
+        //
     }
 
     // borrar la tabla y crear la nueva tabla

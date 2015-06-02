@@ -23,6 +23,7 @@ public class editarmateria extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editarmateria);
+        //Relacionando vistas con variables
         txtidmateria = (EditText) findViewById(R.id.ed_idmateria);
         txtnombre = (EditText) findViewById(R.id.ed_nombremateria);
         txtprofesor = (EditText) findViewById(R.id.ed_profesor);
@@ -58,28 +59,22 @@ public class editarmateria extends ActionBarActivity {
             String buscar = txtidmateria.getText().toString();
             String resultado = "";
 
-
-            // Cursor fila = bd.rawQuery("select * from materias where titulo='" + buscartitulo +"'", null);
+           //Realizando consulta
             Cursor fila = bd.rawQuery("select * from materias where id_materia='"+buscar+"'", null);
-            /*int iidtarea = fila.getColumnIndex("id_tarea");
-            int ititulo = fila.getColumnIndex("titulo");
-            int ifecha = fila.getColumnIndex("fecha");
-            int idescripcion = fila.getColumnIndex("descripcion");
-            */
-            if (fila.moveToFirst()) {
 
+            //Comprobando que exista el registro--Mediante movimiento del cursos
+            if (fila.moveToFirst()) {
+                //Obteniendo datos del cursor
                txtnombre.setText(fila.getString(1));
                txtprofesor.setText(fila.getString(2));
-
 
                 //Desbloqueando EditTex
                 txtnombre.setEnabled(true);
                 txtprofesor.setEnabled(true);
                 txtidmateria.setEnabled(false);
-
-
-
-            } else {
+            }
+            //En caso de que no exitan registros
+            else {
                 Toast.makeText(this, "No existen tareas con el ID selecionado", Toast.LENGTH_SHORT).show();
             }
             bd.close();
@@ -91,18 +86,19 @@ public class editarmateria extends ActionBarActivity {
         try {
             AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "materias", null, 1);
             SQLiteDatabase bd = admin.getWritableDatabase();
-
+        //Obteniendo contenido de EditText
             String bdtitulo = txtnombre.getText().toString();
             String bdfecha = txtprofesor.getText().toString();
 
 
             ContentValues registro = new ContentValues();
-
+            //Agregando elementos a "registro"
             registro.put("nombre", bdtitulo);
             registro.put("profesor", bdfecha);
 
 
             String buscar = txtidmateria.getText().toString();
+            //Actualizar el registro de la base de datos
             int cant = bd.update("materias", registro, "id_materia='" + buscar+"'", null);
             bd.close();
 
@@ -116,7 +112,5 @@ public class editarmateria extends ActionBarActivity {
                 Toast.makeText(this, "No existe la materia",Toast.LENGTH_SHORT).show();
             }
         }catch (Exception ex){Toast.makeText(this, "Error: " + ex, Toast.LENGTH_SHORT).show();}
-
     }
-
 }

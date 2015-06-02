@@ -47,14 +47,14 @@ public class eliminarmateria extends ActionBarActivity {
         try {
             AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "materias", null, 1);
             SQLiteDatabase bd = admin.getWritableDatabase();
+            //Obteniendo datos del EditTex
             String buscar = txtidmateria.getText().toString();
-
+            //Eliminado registro segun el ID obtenido del EditText
             int cant = bd.delete("materias","id_materia='" + buscar +"'", null);
             bd.close();
-
-
+            //Limpiando EditText
             txtidmateria.setText("");
-
+            //Verificando
             if (cant == 1) {
                 Toast.makeText(this, "Se borró la materia", Toast.LENGTH_SHORT).show();
             } else {

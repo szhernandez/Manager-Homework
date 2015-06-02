@@ -1,22 +1,12 @@
-<RelativeLayout
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/WindowBackground">
 
 
-
-    <TextView android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:id="@+id/textView2"
-        android:textSize="18dp"
-
-        android:layout_centerHorizontal="true"
-        android:visibility="invisible"/>
 
 
     <android.support.v7.widget.RecyclerView
@@ -25,20 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="0dp"
-        android:scrollbars="vertical"
 
-        android:layout_alignBottom="@+id/button" />
+        android:scrollbars="vertical" />
 
-    <com.getbase.floatingactionbutton.AddFloatingActionButton
-        android:id="@+id/btnmateria"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_margin="16dp"
-
-        android:baselineAlignBottom="false"
-        android:visibility="invisible"
-        />
 
 
 
@@ -47,35 +26,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:baselineAlignBottom="false"
+        android:onClick="nuevamateria"
         fab:fab_colorNormal="@color/Accent"
         fab:fab_colorPressed="@color/Primary"
-        android:onClick="nuevamateria"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:id="@+id/todomat"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
 
 
-        android:layout_below="@+id/btnmateria"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="consultamaterias"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/btnmateria"
-        android:layout_alignStart="@+id/btnmateria"
-        android:background="@color/Accent"
-        android:text="Mostrar materias"
-        android:visibility="invisible"
-        android:id="@+id/button" />
 
 
 </RelativeLayout>

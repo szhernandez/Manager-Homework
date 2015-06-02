@@ -1,0 +1,96 @@
+TASK com.example.windows.proyectopersonal id=212
+  ACTIVITY com.example.windows.proyectopersonal/.mostrartareas 42b83588 pid=25836
+    Local FragmentActivity 42ae51d0 State:
+      mCreated=truemResumed=true mStopped=false mReallyStopped=false
+      mLoadersStarted=true
+    FragmentManager misc state:
+      mActivity=com.example.windows.proyectopersonal.mostrartareas@42ae51d0
+      mContainer=android.support.v4.app.FragmentActivity$2@42ae5528
+      mCurState=5 mStateSaved=false mDestroyed=false
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{42ae6a88 V.E..... ... 0,0-540,960}
+        android.widget.LinearLayout{42ae70b0 V.E..... ... 0,0-540,960}
+          android.view.ViewStub{42ae7bc0 G.E..... ... 0,0-0,0 #102031f}
+          android.widget.FrameLayout{42ae7db0 V.E..... ... 0,38-540,960}
+            android.support.v7.internal.widget.ActionBarOverlayLayout{42ae8d60 V.ED.... ... 0,0-540,922 #7f090035 app:id/decor_content_parent}
+              android.support.v7.internal.widget.NativeActionModeAwareLayout{42ae95e0 V.ED.... ... 0,84-540,922 #1020002 android:id/content}
+                android.widget.RelativeLayout{42aeee00 V.E..... ... 0,0-540,838}
+                  android.support.v7.widget.RecyclerView{42aef340 V.ED.V.. ... 0,0-540,838 #7f090057 app:id/r_tareas}
+                    android.support.v7.widget.CardView{42952fd0 V.E..... ... 8,0-532,180}
+                      android.widget.RelativeLayout{429c27a8 V.E..... ... 9,13-515,167}
+                        android.widget.TextView{429707e8 V.ED.... ... 0,0-17,41 #7f090063 app:id/c_id}
+                        android.widget.TextView{4297ee78 V.ED.... ... 58,0-447,41 #7f090064 app:id/c_titulo}
+                        android.widget.TextView{429805f0 V.ED.... ... 93,121-413,154 #7f090065 app:id/c_fecha}
+                        android.widget.TextView{429990d8 V.ED.... ... 0,60-461,93 #7f090066 app:id/c_descripcion}
+                        android.widget.ImageView{429fa168 I.ED.... ... 461,41-506,86 #7f09005f app:id/imageView}
+                        android.widget.ImageView{429959f0 I.ED.... ... 459,93-504,138 #7f090060 app:id/imageView2}
+                        android.view.View{42a31a68 V.ED.... ... 0,41-506,43 #7f090062 app:id/linea}
+                        android.view.View{42a4b740 V.ED.... ... 0,119-506,121 #7f090067 app:id/linea3}
+                        android.view.View{42997698 V.ED.... ... 459,0-461,154 #7f090061 app:id/linea2}
+                  com.getbase.floatingactionbutton.AddFloatingActionButton{42af01d8 VFED..C. ... 429,727-540,838 #7f090058 app:id/btnnewtarea}
+              android.support.v7.internal.widget.ActionBarContainer{42ae9a58 V.ED.... ... 0,0-540,84 #7f090036 app:id/action_bar_container}
+                android.support.v7.widget.Toolbar{42aea038 V.E..... ... 0,0-540,84 #7f090037 app:id/action_bar}
+                  android.widget.ImageButton{42aeac58 VFED..C. ... 0,0-84,84}
+                  android.widget.TextView{42af5188 V.ED.... ... 90,21-285,62}
+                  android.support.v7.widget.ActionMenuView{4294ca90 V.E..... ... 396,0-540,84}
+                    android.support.v7.internal.view.menu.ActionMenuItemView{4298aba0 VFED..CL ... 0,6-72,78 #7f09006d app:id/edit}
+                    android.support.v7.internal.view.menu.ActionMenuItemView{42999440 VFED..CL ... 72,6-144,78 #7f09006e app:id/delete}
+                android.support.v7.internal.widget.ActionBarContextView{42aec088 G.E..... ... 0,0-0,0 #7f090038 app:id/action_context_bar}
+
+  ACTIVITY com.example.windows.proyectopersonal/.MainActivity 4355bbc0 pid=25836
+    Local FragmentActivity 42ab5f70 State:
+      mCreated=truemResumed=false mStopped=true mReallyStopped=true
+      mLoadersStarted=false
+    FragmentManager misc state:
+      mActivity=com.example.windows.proyectopersonal.MainActivity@42ab5f70
+      mContainer=android.support.v4.app.FragmentActivity$2@42ab62b8
+      mCurState=2 mStateSaved=true mDestroyed=false
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{42ab6eb0 I.E..... ... 0,0-540,960}
+        android.widget.LinearLayout{42ab74d8 V.E..... ... 0,0-540,960}
+          android.view.ViewStub{42ab7fe8 G.E..... ... 0,0-0,0 #102031f}
+          android.widget.FrameLayout{42ab81d8 V.E..... ... 0,38-540,960}
+            android.support.v7.internal.widget.ActionBarOverlayLayout{42ab9088 V.ED.... ... 0,0-540,922 #7f090035 app:id/decor_content_parent}
+              android.support.v7.internal.widget.NativeActionModeAwareLayout{42ab9908 V.ED.... ... 0,84-540,922 #1020002 android:id/content}
+                android.widget.RelativeLayout{42abf168 V.E..... ... 0,0-540,838}
+                  android.widget.TextView{42abf670 V.ED.... ... 209,0-331,21 #7f090051 app:id/textView2}
+                  android.support.v7.widget.RecyclerView{42abfec0 V.ED.V.. ... 0,0-540,838 #7f090052 app:id/r_materias}
+                    android.support.v7.widget.CardView{42accc58 V.E...C. ... 8,2-532,182}
+                      android.widget.RelativeLayout{42acd2d8 V.E..... ... 9,13-515,167 #7f09005b app:id/layoutmaterias}
+                        android.widget.TextView{42acd7e0 V.ED.... ... 0,0-17,41 #7f09005c app:id/cm_idmateria}
+                        android.widget.TextView{42acdfb0 V.ED.... ... 199,8-306,49 #7f09005d app:id/cm_nombre}
+                        android.widget.TextView{42ace780 V.ED.... ... 86,60-420,93 #7f09005e app:id/cm_profesor}
+                        android.widget.ImageView{42acef98 I.ED.... ... 461,48-506,93 #7f09005f app:id/imageView}
+                        android.widget.ImageView{42acf2f0 I.ED.... ... 459,109-504,154 #7f090060 app:id/imageView2}
+                        android.view.View{42acf688 V.ED.... ... 0,49-506,51 #7f090062 app:id/linea}
+                        android.view.View{42acf968 V.ED.... ... 459,0-461,154 #7f090061 app:id/linea2}
+                    android.support.v7.widget.CardView{42ad0d80 V.E...C. ... 8,184-532,364}
+                      android.widget.RelativeLayout{42ad13b0 V.E..... ... 9,13-515,167 #7f09005b app:id/layoutmaterias}
+                        android.widget.TextView{42ad1870 V.ED.... ... 0,0-17,41 #7f09005c app:id/cm_idmateria}
+                        android.widget.TextView{42ad2040 V.ED.... ... 200,8-306,49 #7f09005d app:id/cm_nombre}
+                        android.widget.TextView{42ad2810 V.ED.... ... 120,60-385,93 #7f09005e app:id/cm_profesor}
+                        android.widget.ImageView{42ad2fe0 I.ED.... ... 461,48-506,93 #7f09005f app:id/imageView}
+                        android.widget.ImageView{42ad3338 I.ED.... ... 459,109-504,154 #7f090060 app:id/imageView2}
+                        android.view.View{42ad3690 V.ED.... ... 0,49-506,51 #7f090062 app:id/linea}
+                        android.view.View{42ad3970 V.ED.... ... 459,0-461,154 #7f090061 app:id/linea2}
+                    android.support.v7.widget.CardView{42ad4e90 V.E...C. ... 8,366-532,546}
+                      android.widget.RelativeLayout{42ad54c0 V.E..... ... 9,13-515,167 #7f09005b app:id/layoutmaterias}
+                        android.widget.TextView{42ad5980 V.ED.... ... 0,0-17,41 #7f09005c app:id/cm_idmateria}
+                        android.widget.TextView{42ad6150 V.ED.... ... 200,8-306,49 #7f09005d app:id/cm_nombre}
+                        android.widget.TextView{42ad6920 V.ED.... ... 121,60-384,93 #7f09005e app:id/cm_profesor}
+                        android.widget.ImageView{42ad70f0 I.ED.... ... 461,48-506,93 #7f09005f app:id/imageView}
+                        android.widget.ImageView{42ad7448 I.ED.... ... 459,109-504,154 #7f090060 app:id/imageView2}
+                        android.view.View{42ad77a0 V.ED.... ... 0,49-506,51 #7f090062 app:id/linea}
+                        android.view.View{42ad7a80 V.ED.... ... 459,0-461,154 #7f090061 app:id/linea2}
+                  com.getbase.floatingactionbutton.AddFloatingActionButton{42ac0d58 VFED..C. ... 24,24-135,135 #7f090054 app:id/btnmateria}
+                  com.getbase.floatingactionbutton.AddFloatingActionButton{42ac2a90 VFED..C. ... 429,727-540,838 #7f090055 app:id/btnregistrar}
+                  android.widget.TextView{42ac4870 V.ED.... ... 0,159-540,192 #7f090056 app:id/todomat}
+                  android.support.v7.internal.widget.TintButton{42ac5080 IFED..C. ... 24,766-256,838 #7f090053 app:id/button}
+              android.support.v7.internal.widget.ActionBarContainer{42ab9d80 V.ED.... ... 0,0-540,84 #7f090036 app:id/action_bar_container}
+                android.support.v7.widget.Toolbar{42aba360 V.E..... ... 0,0-540,84 #7f090037 app:id/action_bar}
+                  android.widget.TextView{42ac8a98 V.ED.... ... 24,21-202,62}
+                  android.support.v7.widget.ActionMenuView{42ad9280 V.E..... ... 324,0-540,84}
+                    android.support.v7.internal.view.menu.ActionMenuItemView{42adb430 VFED..CL ... 0,6-72,78 #7f09006a app:id/editmateria}
+                    android.support.v7.internal.view.menu.ActionMenuItemView{42adc648 VFED..CL ... 72,6-144,78 #7f09006b app:id/deletemateria}
+                    android.support.v7.internal.view.menu.ActionMenuItemView{42add860 VFED..CL ... 144,6-216,78 #7f09006c app:id/showtareas}
+                android.support.v7.internal.widget.ActionBarContextView{42abc3b0 G.E..... ... 0,0-0,0 #7f090038 app:id/action_context_bar}

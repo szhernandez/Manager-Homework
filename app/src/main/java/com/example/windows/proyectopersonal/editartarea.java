@@ -23,14 +23,11 @@ public class editartarea extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editartarea);
-       // txtodo= (EditText) findViewById(R.id.todo);
-
+        //Relacionando vistas con variables
         titulo = (EditText) findViewById(R.id.ed_nombretarea);
         fecha = (EditText) findViewById(R.id.ed_fecha);
         descripcion = (EditText) findViewById(R.id.ed_descripcion);
-       // txtodo= (EditText) findViewById(R.id.todo);
         txtid= (EditText) findViewById(R.id.ed_id);
-
     }
 
 
@@ -52,7 +49,6 @@ public class editartarea extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
     public void consulta(View v) {
@@ -61,17 +57,11 @@ public class editartarea extends ActionBarActivity {
             SQLiteDatabase bd = admin.getWritableDatabase();
             String buscar = txtid.getText().toString();
             String resultado = "";
-
-
-            // Cursor fila = bd.rawQuery("select titulo, fecha, descripcion from tareas where titulo='" + buscartitulo +"'", null);
+          //Realizando la consulta a la base de datos
             Cursor fila = bd.rawQuery("select * from tareas where id_tarea='"+buscar+"'", null);
-            /*int iidtarea = fila.getColumnIndex("id_tarea");
-            int ititulo = fila.getColumnIndex("titulo");
-            int ifecha = fila.getColumnIndex("fecha");
-            int idescripcion = fila.getColumnIndex("descripcion");
-            */
+            //Verificando que exita el registro mediante el movimiento del cursor
             if (fila.moveToFirst()) {
-
+            //asignando valores a los EditText segun los valores de la base de datos
                 titulo.setText(fila.getString(1));
                 fecha.setText(fila.getString(2));
                 descripcion.setText(fila.getString(3));
@@ -82,7 +72,8 @@ public class editartarea extends ActionBarActivity {
                 descripcion.setEnabled(true);
 
 
-             } else {
+             } // En caso de no exitir registros con el ID proporcionado
+              else {
                 Toast.makeText(this,"No existen tareas con el ID selecionado",Toast.LENGTH_SHORT).show();
             }
             bd.close();
@@ -93,33 +84,37 @@ public class editartarea extends ActionBarActivity {
         try {
             AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "tareas", null, 1);
             SQLiteDatabase bd = admin.getWritableDatabase();
-
+            //Obteniendo los datos de los EditText
             String bdtitulo = titulo.getText().toString();
             String bdfecha = fecha.getText().toString();
             String bddescripcion = descripcion.getText().toString();
 
             ContentValues registro = new ContentValues();
-
+            //Agregando los elementos al "registro"
             registro.put("titulo", bdtitulo);
             registro.put("fecha", bdfecha);
             registro.put("descripcion", bddescripcion);
 
             String buscar = txtid.getText().toString();
+            //Realizando la actualizacionn de datos
             int cant = bd.update("tareas", registro, "id_tarea='" + buscar+"'", null);
             bd.close();
-
+            //En caso de exito
             if (cant == 1) {
                 Toast.makeText(this, "Se modificaron los datos",Toast.LENGTH_SHORT).show();
 
                 titulo.setEnabled(false);
                 fecha.setEnabled(false);
                 descripcion.setEnabled(false);
-            } else {
+            }//Si no existe el registro
+            else {
                 Toast.makeText(this, "No existe la tarea",Toast.LENGTH_SHORT).show();
             }
         }catch (Exception ex){Toast.makeText(this, "Error: " + ex, Toast.LENGTH_SHORT).show();}
 
     }
+    //Metodo creado para desplegar un Picker Dialog y asignar su valor al EditTex seleccionado
+
     public void asignarfecha(View v){
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
@@ -139,6 +134,5 @@ public class editartarea extends ActionBarActivity {
                     }
                 }, mYear, mMonth, mDay);
         dpd.show();
-
     }
 }
