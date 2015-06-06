@@ -16,14 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".registrotareas"
             android:label="@string/title_activity_registrotareas"
-            android:parentActivityName=".mostrartareas" >
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".mostrartareas" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".registromaterias"
@@ -36,7 +35,7 @@
         <activity
             android:name=".editartarea"
             android:label="@string/title_activity_editartarea"
-            android:parentActivityName=".mostrartareas" >
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".mostrartareas" />
@@ -44,7 +43,7 @@
         <activity
             android:name=".eliminartarea"
             android:label="@string/title_activity_eliminartarea"
-            android:parentActivityName=".mostrartareas" >
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".mostrartareas" />
@@ -55,13 +54,14 @@
             android:parentActivityName=".MainActivity" >
             <intent-filter>
                 <action android:name="com.example.windows.proyectopersonal.mostrartareas" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity
             android:name=".editarmateria"
             android:label="@string/title_activity_editarmateria" >
@@ -69,6 +69,15 @@
         <activity
             android:name=".eliminarmateria"
             android:label="@string/title_activity_eliminarmateria" >
+        </activity>
+        <activity
+            android:name=".Splash"
+            android:label="@string/title_activity_splash" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

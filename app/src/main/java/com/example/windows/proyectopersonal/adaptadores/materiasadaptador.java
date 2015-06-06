@@ -5,6 +5,10 @@ import android.app.ActivityManager;
 import android.app.ActivityOptions;
 import android.app.Application;
 import android.content.Intent;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
 import android.util.Log;
@@ -16,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.windows.proyectopersonal.MainActivity;
 import com.example.windows.proyectopersonal.R;
+import com.example.windows.proyectopersonal.TwoActionButtonsDialog;
 import com.example.windows.proyectopersonal.editartarea;
 import com.example.windows.proyectopersonal.eliminarmateria;
 import com.example.windows.proyectopersonal.modelos.modelomaterias;
@@ -27,7 +32,7 @@ import java.util.List;
 /**
  * Created by Windows on 22/04/2015.
  */
-public class materiasadaptador extends RecyclerView.Adapter<materiasadaptador.materiasViewHolder> {
+public class materiasadaptador extends RecyclerView.Adapter<materiasadaptador.materiasViewHolder>  {
 
     private List<modelomaterias> items;
 
@@ -124,9 +129,14 @@ public class materiasadaptador extends RecyclerView.Adapter<materiasadaptador.ma
                     try {
                         Intent intent = new Intent(v.getContext(), mostrartareas.class);
                         //you can pass on the Pojo with PARCELABLE
-
                         intent.putExtra("id_materia", viewHolder.id_materia.getText());
                         v.getContext().startActivity(intent);
+
+                      // FragmentTransaction ft = getFragmentManager().beginTransaction();
+                      // DialogFragment dialog = new TwoActionButtonsDialog();
+                      // dialog.show(,"dialog");
+
+
                     } catch (Exception e) {
                         Log.d("CustomAdapter", "error " + e);
                     }

@@ -45,7 +45,7 @@ public class mostrartareas extends ActionBarActivity {
 try {
 
     obtenerbolsita();
-    Toast.makeText(this, "ID_MATERIA: " + bolsitaobtenida, Toast.LENGTH_SHORT).show();
+   // Toast.makeText(this, "ID_MATERIA: " + bolsitaobtenida, Toast.LENGTH_SHORT).show();
     //Creando el arreglo
     List<modelotareas> items = new ArrayList<>();
     //Conexion

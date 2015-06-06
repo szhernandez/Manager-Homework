@@ -46,5 +46,6 @@
     <string name="title_activity_eliminarmateria">eliminarmateria</string>
     <string name="eliminarmateria">Eliminar materia</string>
     <string name="guardarmateria">Guardar</string>
+    <string name="title_activity_splash">Mis materias</string>
 
 </resources>
